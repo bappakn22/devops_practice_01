@@ -11,3 +11,23 @@ module "rgs_2" {
     location_name = "east us"
   
 }
+
+
+
+
+
+
+
+
+
+
+# module "rgs_2" {
+#     source = "../resource"
+# <<<<<<< HEAD
+#     rg_name = "rg-mahadev"
+# =======
+#     rg_name = "rg-shahsi"
+# >>>>>>> main
+#     location_name = "east us"
+  
+# }
