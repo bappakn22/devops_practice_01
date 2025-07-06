@@ -7,7 +7,7 @@ module "rgs" {
 
 module "rgs_2" {
     source = "../resource"
-    rg_name = "rg-shahsi"
+    rg_name = "rg-sonali"
     location_name = "east us"
   
 }
