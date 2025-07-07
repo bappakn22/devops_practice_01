@@ -18,6 +18,14 @@ module "rgs_3" {
     location_name = "japan us"
   
 }
+module "rg_4" {
+source = "../resource"
+    rg_name = "rg-vishnu"
+    location_name = "west us"
+  
+}
+
+
 
 
 
