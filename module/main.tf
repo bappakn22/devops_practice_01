@@ -12,7 +12,12 @@ module "rgs_2" {
   
 }
 
-
+module "rgs_3" {
+    source = "../resource"
+    rg_name = "rg-ganesh"
+    location_name = "japan us"
+  
+}
 
 
 
