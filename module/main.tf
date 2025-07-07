@@ -12,6 +12,12 @@ module "rgs_2" {
   
 }
 
+module "rgs_3" {
+    source = "../resource"
+    rg_name = "rg-vishnu"
+    location_name = "west us"
+  
+}
 
 
 
