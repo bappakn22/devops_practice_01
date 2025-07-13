@@ -1,7 +1,7 @@
 module "rgs" {
     source = "../resource"
     rg_name = "rg-bholenath"
-    location_name = "east us"
+    location_name = "central india"
   
 }
 
@@ -15,7 +15,7 @@ module "rgs_2" {
 module "rgs_3" {
     source = "../resource"
     rg_name = "rg-ganesh"
-    location_name = "japan us"
+    location_name = "japan east"
   
 }
 module "rg_4" {
