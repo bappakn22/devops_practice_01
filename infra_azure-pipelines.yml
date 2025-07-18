@@ -12,10 +12,12 @@ stages:
       - job: "terraforminstall"
         steps:
          - task: TerraformInstaller@1
+           displayName: "terraforminstall"
            inputs:
              terraformVersion: 'latest'
           
          - task: TerraformTask@5
+           displayName: "terraforminit"
            inputs:
              provider: 'azurerm'
              command: 'init'
@@ -25,3 +27,39 @@ stages:
              backendAzureRmStorageAccountName: 'arustgstate'
              backendAzureRmContainerName: 'statefiles'
              backendAzureRmKey: 'infra_pipeline.tfstate'
+
+  - stage: terraformvalidate
+    displayName: "terraform validate"
+    jobs:
+      - job: "terraforminstaller"
+        steps:
+          - task: TerraformInstaller@1
+            displayName: "terraform installer"
+            inputs:
+              terraformVersion: 'latest'
+
+          - task: TerraformTask@5
+            displayName: "terraforminit"
+            inputs:
+              provider: 'azurerm'
+              command: 'init'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/module'
+              backendServiceArm: 'infra-azure-connection'
+              backendAzureRmResourceGroupName: 'arukol_rg'
+              backendAzureRmStorageAccountName: 'arustgstate'
+              backendAzureRmContainerName: 'statefiles'
+              backendAzureRmKey: 'infra_pipeline.tfstate'
+
+          - task: TerraformTask@5
+            displayName: "teraform validate"
+            inputs:
+              provider: 'azurerm'
+              command: 'validate'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/module'
+
+          - task: TerraformTask@5
+            displayName: "terraform plan"
+            inputs:
+              provider: azurerm
+              command: plan
+              workingDirectory: '$(System.DefaultWorkingDirectory)/module'
