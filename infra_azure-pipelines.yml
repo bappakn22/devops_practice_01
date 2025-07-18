@@ -63,3 +63,6 @@ stages:
               provider: azurerm
               command: plan
               workingDirectory: '$(System.DefaultWorkingDirectory)/module'
+              environmentServiceNameAzureRM: 'infra-azure-connection'
+            
+                
