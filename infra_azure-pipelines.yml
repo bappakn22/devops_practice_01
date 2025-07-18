@@ -23,5 +23,5 @@ stages:
              backendServiceArm: 'infra-azure-connection'
              backendAzureRmResourceGroupName: 'arukol_rg'
              backendAzureRmStorageAccountName: 'arustgstate'
-             backendAzureRmContainerName: 'arustgstate'
+             backendAzureRmContainerName: 'statefiles'
              backendAzureRmKey: 'infra_pipeline.tfstate'
